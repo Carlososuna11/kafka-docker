@@ -40,7 +40,7 @@ services:
 docker-compose up -d
 ```
 
-3. Create a Topic
+### Create a Topic
 
    Kafka stores messages in topics. It’s good practice to explicitly create them before using them, even if Kafka is configured to [automagically create them](https://kafka.apache.org/documentation/#brokerconfigs_auto.create.topics.enable) when referenced.
 
@@ -51,4 +51,11 @@ docker exec broker \
 kafka-topics --bootstrap-server broker:9092 \
              --create \
              --topic quickstart
+```
+
+### Consume a Topic
+
+```
+docker exec broker \
+kafka-console-consumer --bootstrap-server broker:9092 --topic test --from-beginning
 ```
